@@ -37,7 +37,7 @@ function [X,info] = art(art_method, varargin)
 %               parameter, e.g., @(j) 1/sqrt(j), where j counts the total
 %               number of row updates.
 %      stoprule Struct containing the following information about the
-%               stopping rule:
+%               stopping rule: stop
 %                   type = 'none' : (Default) the only stopping rule
 %                                   is the maximum number of iterations.
 %                          'NCP'  : Normalized Cumulative Perodogram.
