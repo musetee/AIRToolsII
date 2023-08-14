@@ -26,7 +26,7 @@ trained_relaxpar = train_relaxpar(A,b_noise,xex,method,kmax,options_train);
 
 %% ART method with the Discrepancy Principle stopping criterion
 art_k=50;
-options.nonneg = true;
+options.lbound = 0;
 options.relaxpar=trained_relaxpar;
 options.stoprule.type='DP';
 options.stoprule.taudelta=norm(e);
@@ -36,7 +36,7 @@ for k=1:size(Xart_DP,2)
 end
 
 %% ART method with the NCP stopping rule
-options_NCP.nonneg = true;
+options_NCP.lbound = 0;
 options_NCP.relaxpar=trained_relaxpar ;
 options_NCP.stoprule.type='NCP';
 options_NCP.stoprule.res_dims=[N*2,length(theta)];

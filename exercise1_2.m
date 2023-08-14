@@ -1,7 +1,7 @@
 %% Exercise 1-2: semi-convergence of ART and CGLS
 clear
 %% projection
-N=256;
+N=32;
 space=1;
 theta=1:space:180;
 [A,bex,xex] = binarytomo(N,theta);
@@ -17,7 +17,7 @@ b_noise_proj = reshape(b_noise,[N*2,length(theta)]);
 
 %% ART reconstruction
 art_k=100;
-options.nonneg = true;
+options.lbound = 0;
 Xart = kaczmarz(A,b_noise,1:art_k,[],options);
 Xart_last_iter=Xart(:,end);
 Xart_proj = reshape(Xart_last_iter,[N,N]); 
